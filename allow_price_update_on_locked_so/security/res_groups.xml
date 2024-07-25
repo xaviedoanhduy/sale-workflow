@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_edit_unit_price_on_sol" model="res.groups">
+        <field name="name">Can edit unit price on sale order lines</field>
+        <field name="category_id" ref="base.module_category_sales_sales" />
+    </record>
+</odoo>
