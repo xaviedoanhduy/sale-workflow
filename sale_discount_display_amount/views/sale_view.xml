@@ -19,37 +19,35 @@
         <field name="priority">99</field>
         <field name="arch" type="xml">
             <data>
-                <xpath expr="//field[@name='tax_totals']" position="after">
-                    <field
-                        name="display_discount_with_tax"
-                        invisible="1"
-                        position="attributes"
+                <xpath expr="//group[@name='sale_total']" position="after">
+                    <group
+                        class="oe_subtotal_footer"
+                        colspan="2"
+                        name="sale_discount_total"
                     >
-                    </field>
-                    <field
-                        name="price_subtotal_no_discount"
-                        invisible="display_discount_with_tax == True"
-                        position="attributes"
-                    >
-                    </field>
-                    <field
-                        name="discount_subtotal"
-                        invisible="display_discount_with_tax == True"
-                        position="attributes"
-                    >
-                    </field>
-                    <field
-                        name="price_total_no_discount"
-                        invisible="display_discount_with_tax == False"
-                        position="attributes"
-                    >
-                    </field>
-                    <field
-                        name="discount_total"
-                        invisible="display_discount_with_tax == False"
-                        position="attributes"
-                    >
-                    </field>
+                        <field name="display_discount_with_tax" invisible="1">
+                        </field>
+                        <field
+                            name="price_subtotal_no_discount"
+                            invisible="display_discount_with_tax"
+                        >
+                        </field>
+                        <field
+                            name="discount_subtotal"
+                            invisible="display_discount_with_tax"
+                        >
+                        </field>
+                        <field
+                            name="price_total_no_discount"
+                            invisible="not display_discount_with_tax"
+                        >
+                        </field>
+                        <field
+                            name="discount_total"
+                            invisible="not display_discount_with_tax"
+                        >
+                        </field>
+                    </group>
                 </xpath>
             </data>
         </field>
